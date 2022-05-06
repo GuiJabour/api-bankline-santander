@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "tab_movimentacao")
 public class Movimentacao {
@@ -19,7 +21,9 @@ public class Movimentacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
 	private LocalDateTime dataHora;
+	
 	private String descricao;
 	private double valor;
 	
